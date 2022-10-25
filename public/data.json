@@ -1,0 +1,55 @@
+{
+  "folders": [
+    {
+      "name": "german_movies",
+      "type": "folder"
+    },
+    {
+      "name": "frodo_movies",
+      "type": "folder"
+    },
+    {
+      "name": "rashid_movies",
+      "type": "folder"
+    }
+  ],
+
+  "images": [
+    {
+      "name": "wallpaper.jpg",
+      "mime": "image/jpeg",
+      "type": "file",
+      "url": "https://images.unsplash.com/photo-1613310023042-ad79320c00ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bW91bmF0aW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      "name": "wallpaper.jpg",
+      "mime": "image/jpeg",
+      "type": "file",
+      "url": "https://images.unsplash.com/photo-1612676239016-41e2c92b8e06?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bW91bmF0aW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      "name": "wallpaper.jpg",
+      "mime": "image/jpeg",
+      "type": "file",
+      "url": "https://images.unsplash.com/photo-1610809027249-86c649feacd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW91bmF0aW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      "name": "wallpaper.jpg",
+      "mime": "image/jpeg",
+      "type": "file",
+      "url": "https://images.unsplash.com/photo-1621682372775-533449e550ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bW91bmF0aW5zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      "name": "wallpaper.jpg",
+      "mime": "image/jpeg",
+      "type": "file",
+      "url": "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHNlYSUyMGFlc3RoZXRpY3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      "name": "wallpaper.jpg",
+      "mime": "image/jpeg",
+      "type": "file",
+      "url": "https://images.unsplash.com/photo-1621335223658-0ebd89004d51?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c2VhJTIwYWVzdGhldGljfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+    }
+  ]
+}
