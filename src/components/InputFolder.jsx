@@ -1,23 +1,30 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
-const InputFolder = ({ addFolder, value, setValue, titleFolder, setTitleFolder }) => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!titleFolder) return;
-    addFolder(titleFolder);
-    setTitleFolder('');
+const InputFolder = ({ setFolderName, folderName }) => {
+  const [value, setValue] = React.useState('');
+
+  // Добавление папки
+  const addFolder = () => {
+    setFolderName([
+      ...folderName,
+      {
+        id: uuidv4(),
+        text: value,
+        otherProperty: 'lorem2',
+        isDone: true,
+      },
+    ]);
+    setValue('');
   };
 
+  console.log(value);
+
   return (
-    <form className="input-folder" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={titleFolder}
-        onChange={(e) => setTitleFolder(e.target.value)}
-        placeholder="Название папки"
-      />
-      <button type="submit">Добавить</button>
-    </form>
+    <div className="input-folder">
+      <input type="text" value={value} onChange={(e) => setValue(e.target.value)} placeholder="Название папки" />
+      <button onClick={addFolder}>Добавить</button>
+    </div>
   );
 };
 

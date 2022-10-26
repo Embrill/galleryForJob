@@ -1,47 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import CollectionImages from './CollectionImages';
 import Folder from './Folder';
 import InputFolder from './InputFolder';
+import { v4 as uuidv4 } from 'uuid'; // Уникальыне ID
 
 const Home = () => {
-  // state folder default
+  // Хранилище папки
   const [folderName, setFolderName] = React.useState([
     {
+      id: uuidv4(), // Уникальный id
       text: 'Tarantino movies',
       otherProperty: 'lorem',
       isDone: false,
     },
   ]);
 
-  // Значение инпутов - value
-  const [value, setValue] = React.useState('');
-
-  const [titleFolder, setTitleFolder] = useState('');
-
-  // Add folder
-  const addFolder = (text) => {
-    const newFolder = [...folderName, { text }];
-    setFolderName(newFolder);
-  };
-
-  // Delete folder
+  // Удаление папки
   const removeFolder = (index) => {
     const newFolder = [...folderName]; // copy
     newFolder.splice(index, 1); // delete
     setFolderName(newFolder); // setup value folder
   };
 
-  // Update folder name
-  const [edit, setEdit] = useState(null);
+  // Переименование папки
+  const [value, setValue] = React.useState(''); // value input
+  const [editMode, setEditMode] = useState(null);
 
   const editFolder = (index, title) => {
-    setEdit(index);
+    setEditMode(index);
     setValue(title);
   };
 
   // Запрос API
   const [gallery, setGallery] = React.useState([]);
-
   React.useEffect(() => {
     fetch('https://633e73820dbc3309f3b5d032.mockapi.io/gallery')
       .then((response) => response.json())
@@ -60,27 +51,22 @@ const Home = () => {
     <div className="home">
       <div className="home__header">
         <h2>/path</h2>
-        <InputFolder
-          addFolder={addFolder}
-          value={value}
-          setValue={setValue}
-          titleFolder={titleFolder}
-          setTitleFolder={setTitleFolder}
-        />
+        <InputFolder value={value} setValue={setValue} setFolderName={setFolderName} folderName={folderName} />
       </div>
       <div className="home__content">
-        {folderName.map((title, index) => (
+        {folderName.map((item, index) => (
           <Folder
             key={index}
-            title={title.text}
-            index={index}
+            id={item.id}
+            title={item.text}
             removeFolder={removeFolder}
-            edit={edit}
+            editMode={editMode}
+            setEditMode={setEditMode}
             editFolder={editFolder}
-            setValue={setValue}
             value={value}
-            setTitleFolder={setTitleFolder}
-            titleFolder={titleFolder}
+            setValue={setValue}
+            folderName={folderName}
+            setFolderName={setFolderName}
           />
         ))}
 

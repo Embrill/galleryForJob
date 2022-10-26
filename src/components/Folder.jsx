@@ -1,12 +1,34 @@
 import React from 'react';
 
-const Folder = ({ title, index, removeFolder, edit, editFolder, setValue, value, setTitleFolder, titleFolder }) => {
-  console.log(index);
+const Folder = ({
+  id,
+  title,
+  removeFolder,
+  editMode,
+  setEditMode,
+  value,
+  setValue,
+  folderName,
+  setFolderName,
+  editFolder,
+}) => {
+  // console.log(id); - ID
+  // Сохранение имени папки после редактирования
+  const saveFolderName = (id) => {
+    const newFolder = [...folderName].map((item) => {
+      if (item.id === id && value.length > 0) {
+        item.text = value;
+      }
+      return item;
+    });
+    setFolderName(newFolder);
+    setEditMode(null);
+  };
 
   return (
     <div className="folder">
       <div className="folder__content">
-        <button className="folder__remove" onClick={() => removeFolder(index)}>
+        <button className="folder__remove" onClick={() => removeFolder(id)}>
           x
         </button>
         <svg className="folder__svg" height="24" version="1.1" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -27,15 +49,15 @@ const Folder = ({ title, index, removeFolder, edit, editFolder, setValue, value,
           </g>
         </svg>
 
-        {edit === index ? (
-          <form>
+        {editMode === id ? (
+          <div className="folder__form">
             <input value={value} onChange={(e) => setValue(e.target.value)} type="text" />
-            <button className="folder__btn" type="submit">
+            <button onClick={() => saveFolderName(id)} className="folder__btn">
               Add
             </button>
-          </form>
+          </div>
         ) : (
-          <h3 onClick={() => editFolder(index)} className="folder__title">
+          <h3 onClick={() => editFolder(id, title)} className="folder__title">
             {title}
           </h3>
         )}
