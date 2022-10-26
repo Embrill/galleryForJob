@@ -15,6 +15,14 @@
       right: 0;
     }
 
+    .folder__edit {
+      font-size: 20px;
+      border-radius: 10px;
+      background-color: inherit;
+      border: none;
+      cursor: pointer;
+    }
+
     .folder__remove {
       transition: all 0.3s ease;
       position: absolute;
@@ -50,6 +58,28 @@
       &:hover {
         transform: scale(11) translate(50%, 50%);
       }
+    }
+
+    form {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+
+      input {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        font-size: 26px;
+        text-align: center;
+        background-color: rgba(0, 136, 255, 0.421);
+        max-width: 200px;
+      }
+    }
+    .folder__btn {
+      width: 50px;
     }
   }
 }

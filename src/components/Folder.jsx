@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Folder = ({ title, index, removeFolder }) => {
+const Folder = ({ title, index, removeFolder, edit, editFolder, setValue, value, setTitleFolder, titleFolder }) => {
   console.log(index);
 
   return (
@@ -26,7 +26,19 @@ const Folder = ({ title, index, removeFolder }) => {
             />
           </g>
         </svg>
-        <h3 className="folder__title">{title}</h3>
+
+        {edit === index ? (
+          <form>
+            <input value={value} onChange={(e) => setValue(e.target.value)} type="text" />
+            <button className="folder__btn" type="submit">
+              Add
+            </button>
+          </form>
+        ) : (
+          <h3 onClick={() => editFolder(index)} className="folder__title">
+            {title}
+          </h3>
+        )}
       </div>
     </div>
   );

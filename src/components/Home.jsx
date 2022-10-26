@@ -8,10 +8,15 @@ const Home = () => {
   const [folderName, setFolderName] = React.useState([
     {
       text: 'Tarantino movies',
+      otherProperty: 'lorem',
       isDone: false,
     },
   ]);
-  const [isInputFolder, setIsInputFolder] = React.useState(false);
+
+  // Значение инпутов - value
+  const [value, setValue] = React.useState('');
+
+  const [titleFolder, setTitleFolder] = useState('');
 
   // Add folder
   const addFolder = (text) => {
@@ -27,10 +32,11 @@ const Home = () => {
   };
 
   // Update folder name
+  const [edit, setEdit] = useState(null);
 
-  // Открытие инпута ввода имени папки
-  const openPopUp = () => {
-    setIsInputFolder(!isInputFolder);
+  const editFolder = (index, title) => {
+    setEdit(index);
+    setValue(title);
   };
 
   // Запрос API
@@ -48,16 +54,34 @@ const Home = () => {
       });
   }, []);
 
+  console.log(folderName);
+
   return (
     <div className="home">
       <div className="home__header">
         <h2>/path</h2>
-        {isInputFolder && <InputFolder addFolder={addFolder} />}
-        <button onClick={openPopUp}>Добавить папку</button>
+        <InputFolder
+          addFolder={addFolder}
+          value={value}
+          setValue={setValue}
+          titleFolder={titleFolder}
+          setTitleFolder={setTitleFolder}
+        />
       </div>
       <div className="home__content">
         {folderName.map((title, index) => (
-          <Folder key={index} title={title.text} index={index} removeFolder={removeFolder} />
+          <Folder
+            key={index}
+            title={title.text}
+            index={index}
+            removeFolder={removeFolder}
+            edit={edit}
+            editFolder={editFolder}
+            setValue={setValue}
+            value={value}
+            setTitleFolder={setTitleFolder}
+            titleFolder={titleFolder}
+          />
         ))}
 
         {gallery.map((item, index) => (

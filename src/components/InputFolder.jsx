@@ -1,19 +1,22 @@
 import React from 'react';
 
-const InputFolder = ({ addFolder }) => {
-  const [value, setValue] = React.useState('');
-
+const InputFolder = ({ addFolder, value, setValue, titleFolder, setTitleFolder }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!value) return;
-    addFolder(value);
-    setValue('');
+    if (!titleFolder) return;
+    addFolder(titleFolder);
+    setTitleFolder('');
   };
 
   return (
     <form className="input-folder" onSubmit={handleSubmit}>
-      <input type="text" value={value} onChange={(e) => setValue(e.target.value)} placeholder="Название папки" />
-      <button type="submit">Add</button>
+      <input
+        type="text"
+        value={titleFolder}
+        onChange={(e) => setTitleFolder(e.target.value)}
+        placeholder="Название папки"
+      />
+      <button type="submit">Добавить</button>
     </form>
   );
 };
