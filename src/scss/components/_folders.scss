@@ -1,0 +1,19 @@
+.folder {
+  // .folder__image
+  &__image {
+    width: 300px;
+    height: 300px;
+    svg {
+      //   display: block;
+      transform: scale(10.5) translate(50%, 50%);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: scale(11) translate(50%, 50%);
+      }
+    }
+  }
+  // .folder__title
+  &__title {
+  }
+}

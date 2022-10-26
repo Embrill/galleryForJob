@@ -1,6 +1,6 @@
 .home {
   width: 1000px;
-  height: 800px;
+  height: auto;
   background-color: rgb(119, 119, 119);
   margin: 5% auto;
   border-radius: 20px;
@@ -8,6 +8,31 @@
   font-size: 24px;
   // .home__content
   &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     text-align: left;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 14px;
+
+    button {
+      background-color: rgb(24, 159, 217);
+      color: $gray-line;
+      font-weight: 700;
+      border-radius: 20px;
+      padding: 12px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px #fff solid;
+      &:hover {
+        background-color: rgb(20, 124, 168);
+      }
+    }
   }
 }
