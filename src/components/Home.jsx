@@ -1,21 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import CollectionImages from './CollectionImages';
-import Folders from './Folders';
+import Folder from './Folder';
 import InputFolder from './InputFolder';
 
 const Home = () => {
-  // const dataFolders = ['Tarantino movies'];
-  const [folderName, setFolderName] = React.useState([]);
+  // state folder default
+  const [folderName, setFolderName] = React.useState([
+    {
+      text: 'Tarantino movies',
+      isDone: false,
+    },
+  ]);
   const [isInputFolder, setIsInputFolder] = React.useState(false);
 
-  // Добавление папок
-  const addFolder = () => {
-    setFolderName((prev) => [...prev, prev.push()]);
+  // Add folder
+  const addFolder = (text) => {
+    const newFolder = [...folderName, { text }];
+    setFolderName(newFolder);
   };
 
-  //
+  // Delete folder
+  const removeFolder = (index) => {
+    const newFolder = [...folderName]; // copy
+    newFolder.splice(index, 1); // delete
+    setFolderName(newFolder); // setup value folder
+  };
+
+  // Update folder name
+
+  // Открытие инпута ввода имени папки
   const openPopUp = () => {
-    setIsInputFolder(true);
+    setIsInputFolder(!isInputFolder);
   };
 
   // Запрос API
@@ -33,8 +48,6 @@ const Home = () => {
       });
   }, []);
 
-  console.log(folderName);
-
   return (
     <div className="home">
       <div className="home__header">
@@ -44,7 +57,7 @@ const Home = () => {
       </div>
       <div className="home__content">
         {folderName.map((title, index) => (
-          <Folders key={index} title={title} />
+          <Folder key={index} title={title.text} index={index} removeFolder={removeFolder} />
         ))}
 
         {gallery.map((item, index) => (
