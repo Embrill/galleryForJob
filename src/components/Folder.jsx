@@ -11,6 +11,7 @@ const Folder = ({
   folderName,
   setFolderName,
   editFolder,
+  index,
 }) => {
   // console.log(id); - ID
   // Сохранение имени папки после редактирования
@@ -28,7 +29,7 @@ const Folder = ({
   return (
     <div className="folder">
       <div className="folder__content">
-        <button className="folder__remove" onClick={() => removeFolder(id)}>
+        <button className="folder__remove" onClick={() => removeFolder(index)}>
           x
         </button>
         <svg className="folder__svg" height="24" version="1.1" width="24" xmlns="http://www.w3.org/2000/svg">

@@ -67,6 +67,7 @@ const Home = () => {
             setValue={setValue}
             folderName={folderName}
             setFolderName={setFolderName}
+            index={index}
           />
         ))}
 
