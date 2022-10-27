@@ -36,7 +36,7 @@ function App() {
     setValue(title);
   };
 
-  console.log(folderName);
+  // console.log(folderName);
 
   return (
     <div className="App home">
@@ -58,7 +58,7 @@ function App() {
               />
             }
           />
-          <Route path="/folds" element={<FolderInner />} />
+          <Route path="/:id" element={<FolderInner />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
