@@ -19,6 +19,14 @@
     justify-content: space-between;
     align-items: center;
     margin: 14px;
+    border: 1px #222 solid;
+    padding: 10px;
+
+    h2 {
+      border: 1px #222 solid;
+      padding: 10px;
+      border-radius: 10px;
+    }
 
     button {
       background-color: rgb(24, 159, 217);
